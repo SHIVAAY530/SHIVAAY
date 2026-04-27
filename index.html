@@ -6,148 +6,200 @@
 <title>Shivaay Tech</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
-    #contact {
-    padding: 120px 20px;
-}
+html{scroll-behavior:smooth}
 
-#contact p {
-    margin: 12px 0;
-    font-size: 16px;
-    opacity: 0.8;
-}
-
-#contact .btn {
-    margin-top: 25px;
-}
-:root {
-    --primary:#38bdf8;
-    --secondary:#0ea5e9;
+:root{
+--primary:#38bdf8;
+--secondary:#0ea5e9;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
 body{
-    background:#020617;
-    color:white;
-    overflow-x:hidden;
+background:linear-gradient(135deg,#020617,#020617,#0f172a);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+color:white;
+overflow-x:hidden;
 }
 
-#particles-js{position:fixed;width:100%;height:100%;z-index:-1}
-
-nav {
-    position:fixed;
-    width:100%;
-    top:0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    transition:0.3s;
-    z-index:1000;
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
-/* NAV LINKS */
-.nav-links {
-    display:flex;
-    gap:20px;
-}
-
-/* MOBILE FIX */
-@media(max-width:768px){
-
-    nav{
-        padding:10px 20px;
-    }
-
-    .nav-links{
-        gap:12px;
-        font-size:14px;
-    }
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+transition:0.3s;
+z-index:1000;
 }
 
 nav.scrolled{
-    background:rgb(0, 0, 0);
-    backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
-    font-size:22px;
-    font-weight:600;
-    background:linear-gradient(45deg,var(--primary),var(--secondary));
-    -webkit-background-clip:text;
-    color:transparent;
+font-size:22px;
+font-weight:600;
+background:linear-gradient(45deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+color:transparent;
 }
 
-nav a{margin-left:20px;text-decoration:none;color:white}
+.nav-links{display:flex;gap:20px}
 
+.nav-links a{
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--primary);
+}
+
+.nav-links a.active{color:var(--primary)}
+
+/* HERO */
 .hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
 }
 
 .brand{
-    font-size:3.5rem;
-    font-weight:600;
+font-size:3.5rem;
+font-weight:600;
 }
 
 .highlight{color:var(--primary)}
 
-.subtext{opacity:0.7;margin:15px 0;max-width:600px}
+.subtext{
+opacity:0.7;
+margin:15px 0;
+max-width:600px;
+}
 
+/* BUTTON */
 .btn{
-    padding:14px 30px;
-    background:linear-gradient(45deg,var(--primary),var(--secondary));
-    color:black;
-    border-radius:30px;
-    text-decoration:none;
-    margin:10px;
-    transition:0.3s;
+padding:14px 30px;
+background:linear-gradient(45deg,var(--primary),var(--secondary));
+color:black;
+border-radius:30px;
+text-decoration:none;
+margin:10px;
+transition:0.3s;
 }
 
 .btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 25px rgba(56,189,248,0.8);
+transform:scale(1.1);
+box-shadow:0 0 30px rgba(56,189,248,0.9);
 }
 
-section{padding:100px 20px;text-align:center}
+/* SECTIONS */
+section{
+min-height:100vh;
+padding:100px 20px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
 
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
+/* GLASS CARD */
 .card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    padding:30px;
-    border-radius:20px;
-    transition:0.4s;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:20px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
 }
 
-.card:hover{transform:translateY(-10px)}
+.card::before{
+content:"";
+position:absolute;
+top:-100%;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
+transition:0.5s;
+}
 
-.trust h3{font-size:2rem;color:var(--primary)}
+.card:hover::before{top:100%}
 
-.footer{text-align:center;padding:20px;opacity:0.6}
+.card:hover{
+transform:translateY(-12px) scale(1.03);
+border-color:var(--primary);
+box-shadow:0 0 25px rgba(56,189,248,0.4);
+}
 
+/* TRUST */
+.trust h3{
+font-size:2rem;
+color:var(--primary);
+}
+
+/* CONTACT */
+#contact p{
+margin:12px 0;
+opacity:0.8;
+}
+
+#contact .btn{
+margin-top:25px;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:20px;
+opacity:0.6;
+}
+
+/* MOBILE */
 @media(max-width:768px){
-    .brand{font-size:2.2rem}
+.brand{font-size:2.2rem}
+nav{padding:10px 20px}
+.nav-links{gap:12px;font-size:14px}
 }
+
 </style>
 </head>
 
 <body>
-
-<div id="particles-js"></div>
 
 <nav id="nav">
 <div class="logo">𝓢𝓱𝓲𝓿𝓪𝓪𝔂 𝓣𝓮𝓬𝓱</div>
@@ -159,22 +211,21 @@ section{padding:100px 20px;text-align:center}
 </nav>
 
 <div class="hero">
-    <div class="brand">
-        Build Your <span class="highlight">Future in Tech</span>
-    </div>
-    <p class="subtext">
-       From ideas to execution — real projects, real impact.
-    </p>
-
-   
+<div class="brand">
+Build Your <span class="highlight">Future in Tech</span>
+</div>
+<p class="subtext">
+From ideas to execution — real projects, real impact.
+</p>
+<a href="#contact" class="btn">Get Started</a>
 </div>
 
-<section class="trust">
+<section class="trust" id="trust">
 <h2>Trusted by Learners & Clients</h2>
 <div class="grid">
-<div class="card"><h3>...</h3><p>Projects Delivered</p></div>
-<div class="card"><h3>...</h3><p>Students Trained</p></div>
-<div class="card"><h3>...</h3><p>Technologies</p></div>
+<div class="card"><h3>50+</h3><p>Projects Delivered</p></div>
+<div class="card"><h3>100+</h3><p>Students Trained</p></div>
+<div class="card"><h3>10+</h3><p>Technologies</p></div>
 </div>
 </section>
 
@@ -190,22 +241,10 @@ section{padding:100px 20px;text-align:center}
 
 <section id="portfolio">
 <h2>Recent Work</h2>
-<div class="card">
-<h3>AI Chatbot System</h3>
-<p>Automates responses for student queries using AI.</p>
-<small>Python • NLP • Flask</small>
-</div>
-
-<div class="card">
-<h3>Startup Website</h3>
-<p>Modern responsive website for business growth.</p>
-<small>HTML • CSS • JavaScript</small>
-</div>
-
-<div class="card">
-<h3>Student Dashboard</h3>
-<p>Login-based system with data tracking and analytics.</p>
-<small>JS • Backend • Database</small>
+<div class="grid">
+<div class="card"><h3>AI Chatbot</h3><p>Smart automation system.</p></div>
+<div class="card"><h3>Startup Website</h3><p>Modern UI design.</p></div>
+<div class="card"><h3>Dashboard System</h3><p>Data-driven platform.</p></div>
 </div>
 </section>
 
@@ -213,25 +252,34 @@ section{padding:100px 20px;text-align:center}
 <h2>Start Your Journey</h2>
 <p>contact@shivaaytech.in</p>
 <p>7259871530</p>
-
 <a href="https://wa.me/917259871530" class="btn">Chat Now</a>
 </section>
 
 <div class="footer">© 2026 Shivaay Tech</div>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-particlesJS("particles-js",{
-  particles:{number:{value:60},size:{value:3},move:{speed:1.2},line_linked:{enable:true}}
+window.addEventListener("scroll",()=>{
+document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
 });
 
-window.addEventListener("scroll",()=>{
-    document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
-})
-</script>
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init();</script>
+window.addEventListener("scroll",()=>{
+let current="";
+sections.forEach(section=>{
+if(scrollY>=section.offsetTop-200){
+current=section.getAttribute("id");
+}
+});
+navLinks.forEach(a=>{
+a.classList.remove("active");
+if(a.getAttribute("href")==="#"+current){
+a.classList.add("active");
+}
+});
+});
+</script>
 
 </body>
 </html>
