@@ -1,285 +1,249 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivaay Tech</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Scheduled Maintenance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
-html{scroll-behavior:smooth}
 
-:root{
---primary:#38bdf8;
---secondary:#0ea5e9;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
 body{
-background:linear-gradient(135deg,#020617,#020617,#0f172a);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
-color:white;
-overflow-x:hidden;
+    background:#f5f7fb;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-@keyframes bg{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+.container{
+    text-align:center;
+    width:100%;
+    max-width:760px;
 }
 
-/* NAV */
-nav{
-position:fixed;
-width:100%;
-top:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-transition:0.3s;
-z-index:1000;
-}
-
-nav.scrolled{
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.logo{
-font-size:22px;
-font-weight:600;
-background:linear-gradient(45deg,var(--primary),var(--secondary));
--webkit-background-clip:text;
-color:transparent;
-}
-
-.nav-links{display:flex;gap:20px}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:var(--primary);
-}
-
-.nav-links a.active{color:var(--primary)}
-
-/* HERO */
+/* top artwork */
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-padding:20px;
-animation:fadeIn 1.5s ease;
+    position:relative;
+    margin-bottom:25px;
+    height:160px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
+.blob{
+    position:absolute;
+    width:210px;
+    height:120px;
+    background:#c9f2f0;
+    border-radius:58% 42% 63% 37% / 45% 55% 45% 55%;
 }
 
-.brand{
-font-size:3.5rem;
-font-weight:600;
+.blob::before,
+.blob::after{
+    content:'';
+    position:absolute;
+    background:#c9f2f0;
+    border-radius:50%;
 }
 
-.highlight{color:var(--primary)}
-
-.subtext{
-opacity:0.7;
-margin:15px 0;
-max-width:600px;
+.blob::before{
+    width:14px;
+    height:14px;
+    top:-18px;
+    right:35px;
 }
 
-/* BUTTON */
+.blob::after{
+    width:10px;
+    height:10px;
+    bottom:-16px;
+    left:40px;
+}
+
+.laptop{
+    position:relative;
+    z-index:2;
+    font-size:95px;
+    color:#2d2d2d;
+}
+
+/* card */
+.card{
+    background:#fff;
+    max-width:520px;
+    margin:auto;
+    border-radius:26px;
+    padding:40px 42px;
+    box-shadow:
+    0 0 0 1px rgba(0,0,0,.03),
+    0 20px 40px rgba(0,0,0,.04);
+}
+
+/* blue icon */
+.icon-box{
+    width:64px;
+    height:64px;
+    margin:auto;
+    border-radius:18px;
+    background:linear-gradient(135deg,#3195ff,#2970ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:28px;
+    box-shadow:0 12px 25px rgba(49,149,255,.22);
+}
+
+/* badge */
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:18px;
+    padding:8px 16px;
+    background:#f0f5ff;
+    color:#2d6bff;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:500;
+}
+
+.badge span{
+    width:7px;
+    height:7px;
+    background:#2d6bff;
+    border-radius:50%;
+}
+
+h1{
+    margin-top:28px;
+    font-size:38px;
+    font-weight:500;
+    color:#1b2332;
+    letter-spacing:-0.5px;
+}
+
+.desc{
+    margin-top:18px;
+    color:#7c879c;
+    font-size:15px;
+    line-height:1.9;
+    max-width:410px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.line{
+    height:1px;
+    background:#edf1f6;
+    margin:32px 0 20px;
+}
+
+.note{
+    color:#a7b0c0;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
 .btn{
-padding:14px 30px;
-background:linear-gradient(45deg,var(--primary),var(--secondary));
-color:black;
-border-radius:30px;
-text-decoration:none;
-margin:10px;
-transition:0.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    background:#0c4ca3;
+    color:#fff;
+    padding:14px 26px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
 }
 
 .btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 30px rgba(56,189,248,0.9);
+    transform:translateY(-2px);
 }
 
-/* SECTIONS */
-section{
-min-height:100vh;
-padding:100px 20px;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
+@media(max-width:600px){
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+    .card{
+        padding:30px 25px;
+    }
 
-/* GLASS CARD */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(20px);
-padding:30px;
-border-radius:20px;
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
+    h1{
+        font-size:30px;
+    }
 
-.card::before{
-content:"";
-position:absolute;
-top:-100%;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
-transition:0.5s;
-}
-
-.card:hover::before{top:100%}
-
-.card:hover{
-transform:translateY(-12px) scale(1.03);
-border-color:var(--primary);
-box-shadow:0 0 25px rgba(56,189,248,0.4);
-}
-
-/* TRUST */
-.trust h3{
-font-size:2rem;
-color:var(--primary);
-}
-
-/* CONTACT */
-#contact p{
-margin:12px 0;
-opacity:0.8;
-}
-
-#contact .btn{
-margin-top:25px;
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:20px;
-opacity:0.6;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.brand{font-size:2.2rem}
-nav{padding:10px 20px}
-.nav-links{gap:12px;font-size:14px}
+    .laptop{
+        font-size:75px;
+    }
 }
 
 </style>
 </head>
-
 <body>
 
-<nav id="nav">
-<div class="logo">𝓢𝓱𝓲𝓿𝓪𝓪𝔂 𝓣𝓮𝓬𝓱</div>
-<div class="nav-links">
-<a href="#services">𝕊𝕖𝕣𝕧𝕚𝕔𝕖𝕤</a>
-<a href="#portfolio">ℙ𝕠𝕣𝕥𝕗𝕠𝕝𝕚𝕠</a>
-<a href="#contact">ℂ𝕠𝕟𝕥𝕒𝕔𝕥</a>
+<div class="container">
+
+    <!-- top image -->
+    <div class="hero">
+
+        <div class="blob"></div>
+
+        <div class="laptop">
+            <i class="fa-solid fa-laptop-code"></i>
+        </div>
+
+    </div>
+
+    <!-- main card -->
+    <div class="card">
+
+        <div class="icon-box">
+            <i class="fa-regular fa-clock"></i>
+        </div>
+
+        <div class="badge">
+            <span></span>
+            Scheduled Maintenance
+        </div>
+
+        <h1>We'll be back soon</h1>
+
+        <div class="desc">
+            Our platform is currently undergoing scheduled maintenance
+            to improve performance, reliability, and your overall
+            experience. Please check back shortly.
+        </div>
+
+        <div class="line"></div>
+
+        <div class="note">
+            Thank you for your patience.
+        </div>
+
+        <a href="#" class="btn">
+            <i class="fa-solid fa-house"></i>
+            Return to dashboard
+        </a>
+
+    </div>
+
 </div>
-</nav>
-
-<div class="hero">
-<div class="brand">
-Build Your <span class="highlight">Future in Tech</span>
-</div>
-<p class="subtext">
-From ideas to execution — real projects, real impact.
-</p>
-<a href="#contact" class="btn">Get Started</a>
-</div>
-
-<section class="trust" id="trust">
-<h2>Trusted by Learners & Clients</h2>
-<div class="grid">
-<div class="card"><h3>...</h3><p>Projects Delivered</p></div>
-<div class="card"><h3>...</h3><p>Candidates Trained</p></div>
-<div class="card"><h3>...</h3><p>Technologies</p></div>
-</div>
-</section>
-
-<section id="services">
-<h2>What We Offer</h2>
-<div class="grid">
-<div class="card">Industry Projects</div>
-<div class="card">1-on-1 Mentorship</div>
-<div class="card">Skill Training</div>
-<div class="card">Tech Solutions</div>
-</div>
-</section>
-
-<section id="portfolio">
-<h2>Recent Work</h2>
-<div class="grid">
-<div class="card"><h3>AI Chatbot</h3><p>Smart automation system.</p></div>
-<div class="card"><h3>Startup Website</h3><p>Modern UI design.</p></div>
-<div class="card"><h3>Dashboard System</h3><p>Data-driven platform.</p></div>
-</div>
-</section>
-
-<section id="contact">
-<h2>Start Your Journey</h2>
-<p>contact@shivaaytech.in</p>
-<p>7259871530</p>
-<a href="https://wa.me/917259871530" class="btn">Chat Now</a>
-</section>
-
-<div class="footer">© 2026 Shivaay Tech</div>
-
-<script>
-window.addEventListener("scroll",()=>{
-document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
-});
-
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(section=>{
-if(scrollY>=section.offsetTop-200){
-current=section.getAttribute("id");
-}
-});
-navLinks.forEach(a=>{
-a.classList.remove("active");
-if(a.getAttribute("href")==="#"+current){
-a.classList.add("active");
-}
-});
-});
-</script>
 
 </body>
-</html> -->
+</html>
