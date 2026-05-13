@@ -28,43 +28,24 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
-    position:relative;
-    overflow:hidden;
     background:linear-gradient(135deg,#eef4ff,#f8fbff);
 }
 
-/* Background logo */
-body::before{
-    content:'';
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:min(70vw,700px);
-    height:min(70vw,700px);
-
-    background:url('image/logo.png') center/contain no-repeat;
-
-    opacity:.12;
-    z-index:0;
-}
-
-/* Main container */
+/* Container */
 .container{
     width:100%;
     max-width:650px;
-    position:relative;
-    z-index:2;
 }
 
-/* Glass card */
+/* Glass Card */
 .card{
+
     width:100%;
     text-align:center;
 
-    background:rgba(255,255,255,.35);
+    background:rgba(255,255,255,.55);
 
-    border:1px solid rgba(255,255,255,.4);
+    border:1px solid rgba(255,255,255,.7);
 
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
@@ -77,29 +58,36 @@ body::before{
     0 8px 32px rgba(0,0,0,.08);
 }
 
-/* Icon */
-.icon-box{
-    width:75px;
-    height:75px;
+/* Logo Circle */
+.logo-box{
+
+    width:100px;
+    height:100px;
+
     margin:auto;
 
-    border-radius:22px;
+    border-radius:50%;
 
-    background:linear-gradient(135deg,#2d8cff,#296dff);
+    background:rgba(255,255,255,.85);
+
+    border:1px solid rgba(255,255,255,.8);
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    color:#fff;
-    font-size:30px;
-
     box-shadow:
-    0 12px 25px rgba(45,140,255,.22);
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo-box img{
+    width:70%;
+    object-fit:contain;
 }
 
 /* Badge */
 .badge{
+
     margin-top:22px;
 
     display:inline-flex;
@@ -110,7 +98,7 @@ body::before{
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.55);
+    background:#edf4ff;
 
     color:#296dff;
 
@@ -125,6 +113,7 @@ body::before{
     background:#296dff;
 }
 
+/* Heading */
 h1{
     margin-top:25px;
 
@@ -135,7 +124,9 @@ h1{
     font-weight:600;
 }
 
+/* Description */
 .desc{
+
     margin-top:18px;
 
     color:#5f6f86;
@@ -145,15 +136,16 @@ h1{
     line-height:1.8;
 
     max-width:470px;
+
     margin-left:auto;
     margin-right:auto;
 }
 
+/* Divider */
 .line{
     margin:32px auto;
     height:1px;
     background:rgba(0,0,0,.08);
-    width:100%;
 }
 
 /* Email */
@@ -206,14 +198,9 @@ h1{
 
 @media(max-width:480px){
 
-    body{
-        padding:15px;
-    }
-
-    .icon-box{
-        width:65px;
-        height:65px;
-        font-size:25px;
+    .logo-box{
+        width:80px;
+        height:80px;
     }
 
     .btn{
@@ -235,17 +222,21 @@ h1{
 
     <div class="card">
 
-        <div class="icon-box">
-            <i class="fa-regular fa-clock"></i>
+        <!-- Logo -->
+        <div class="logo-box">
+            <img src="image/logo.png" alt="Logo">
         </div>
 
+        <!-- Badge -->
         <div class="badge">
             <span></span>
             Scheduled Maintenance
         </div>
 
+        <!-- Heading -->
         <h1>We'll be back soon</h1>
 
+        <!-- Description -->
         <div class="desc">
             Our platform is currently undergoing scheduled maintenance
             to improve performance, security and reliability.
@@ -254,6 +245,7 @@ h1{
 
         <div class="line"></div>
 
+        <!-- Email -->
         <a href="mailto:contact@shivaaytech.in" class="email">
             <i class="fa-solid fa-envelope"></i>
             contact@shivaaytech.in
@@ -261,6 +253,7 @@ h1{
 
         <br>
 
+        <!-- Button -->
         <a href="https://shivaaytech.in" class="btn">
             <i class="fa-solid fa-house"></i>
             Return to Website
