@@ -6,6 +6,9 @@
 
 <title>shivaaytech.in</title>
 
+<!-- Browser Tab Logo -->
+<link rel="icon" type="image/png" href="logo.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
@@ -27,6 +30,22 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Background Logo */
+body::before{
+    content:'';
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:550px;
+    height:550px;
+    background:url('logo.png') center/contain no-repeat;
+    opacity:.04;
+    z-index:-1;
 }
 
 .container{
@@ -92,6 +111,13 @@ body{
     box-shadow:
     0 0 0 1px rgba(0,0,0,.03),
     0 20px 40px rgba(0,0,0,.04);
+}
+
+/* front logo */
+.card-logo{
+    width:75px;
+    margin-bottom:20px;
+    object-fit:contain;
 }
 
 /* blue icon */
@@ -191,6 +217,10 @@ h1{
     .laptop{
         font-size:75px;
     }
+
+    .card-logo{
+        width:60px;
+    }
 }
 
 </style>
@@ -212,6 +242,9 @@ h1{
 
     <!-- main card -->
     <div class="card">
+
+        <!-- Front Logo -->
+        <img src="logo.png" class="card-logo">
 
         <div class="icon-box">
             <i class="fa-regular fa-clock"></i>
@@ -236,9 +269,9 @@ h1{
             Thank you for your patience.
         </div>
 
-        <a href="#" class="btn">
+        <a href="https://shivaaytech.in" class="btn">
             <i class="fa-solid fa-house"></i>
-            Return to dashboard
+            Return to Website
         </a>
 
     </div>
