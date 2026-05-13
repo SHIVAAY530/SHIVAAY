@@ -6,8 +6,8 @@
 
 <title>shivaaytech.in</title>
 
-<!-- Browser Tab Logo -->
-<link rel="icon" type="image/png" href="logo.png">
+<!-- Browser tab logo -->
+<link rel="icon" type="image/png" href="image/logo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -34,7 +34,7 @@ body{
     overflow:hidden;
 }
 
-/* Background Logo */
+/* Background watermark logo */
 body::before{
     content:'';
     position:fixed;
@@ -43,7 +43,7 @@ body::before{
     transform:translate(-50%,-50%);
     width:550px;
     height:550px;
-    background:url('logo.png') center/contain no-repeat;
+    background:url('image/logo.png') center/contain no-repeat;
     opacity:.04;
     z-index:-1;
 }
@@ -54,7 +54,7 @@ body::before{
     max-width:760px;
 }
 
-/* top artwork */
+/* Top artwork */
 .hero{
     position:relative;
     margin-bottom:25px;
@@ -101,7 +101,7 @@ body::before{
     color:#2d2d2d;
 }
 
-/* card */
+/* Card */
 .card{
     background:#fff;
     max-width:520px;
@@ -113,14 +113,14 @@ body::before{
     0 20px 40px rgba(0,0,0,.04);
 }
 
-/* front logo */
+/* Small front logo */
 .card-logo{
-    width:75px;
+    width:80px;
     margin-bottom:20px;
     object-fit:contain;
 }
 
-/* blue icon */
+/* Blue icon */
 .icon-box{
     width:64px;
     height:64px;
@@ -135,7 +135,7 @@ body::before{
     box-shadow:0 12px 25px rgba(49,149,255,.22);
 }
 
-/* badge */
+/* Badge */
 .badge{
     display:inline-flex;
     align-items:center;
@@ -161,7 +161,6 @@ h1{
     font-size:38px;
     font-weight:500;
     color:#1b2332;
-    letter-spacing:-0.5px;
 }
 
 .desc{
@@ -229,22 +228,20 @@ h1{
 
 <div class="container">
 
-    <!-- top image -->
+    <!-- Top artwork -->
     <div class="hero">
-
         <div class="blob"></div>
 
         <div class="laptop">
             <i class="fa-solid fa-laptop-code"></i>
         </div>
-
     </div>
 
-    <!-- main card -->
+    <!-- Card -->
     <div class="card">
 
-        <!-- Front Logo -->
-        <img src="logo.png" class="card-logo">
+        <!-- Front logo -->
+        <img src="image/logo.png" class="card-logo" alt="Logo">
 
         <div class="icon-box">
             <i class="fa-regular fa-clock"></i>
