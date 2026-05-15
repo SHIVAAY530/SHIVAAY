@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>SHIVAAY TECH Login</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#1c262f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.box{
+
+    width:400px;
+
+    background:#212d37;
+
+    padding:40px;
+
+    border:2px solid transparent;
+
+    border-image:linear-gradient(
+        to right,
+        #FF8400,
+        #7B2CFF
+    ) 1;
+}
+
+h2{
+    text-align:center;
+}
+
+select,input,button{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    box-sizing:border-box;
+}
+
+button{
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        to right,
+        #FF8400,
+        #7B2CFF
+    );
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="box">
+
+    <h2>SHIVAAY TECH</h2>
+
+
+    <select id="role">
+
+        <option value="admin">
+            Admin
+        </option>
+
+        <option value="client">
+            Client
+        </option>
+
+        <option value="student">
+            Student
+        </option>
+
+    </select>
+
+
+    <input
+        id="username"
+        placeholder="Username"
+    >
+
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Password"
+    >
+
+
+    <button onclick="login()">
+
+        Login
+
+    </button>
+
+</div>
+
+
+
+<script>
+
+const users={
+
+    admin:[
+
+        {
+            username:"admin1",
+            password:"admin123",
+            name:"Sarvesh Admin"
+        },
+
+        {
+            username:"admin2",
+            password:"admin456",
+            name:"System Admin"
+        }
+    ],
+
+
+    client:[
+
+        {
+            username:"client1",
+            password:"client123",
+            name:"Rahul Client"
+        },
+
+        {
+            username:"client2",
+            password:"client456",
+            name:"Business Client"
+        }
+    ],
+
+
+    student:[
+
+        {
+            username:"student1",
+            password:"student123",
+            name:"Amit Student"
+        },
+
+        {
+            username:"student2",
+            password:"student456",
+            name:"Priya Student"
+        }
+    ]
+};
+
+
+
+function login(){
+
+    let role=
+        document.getElementById(
+            "role"
+        ).value;
+
+
+    let username=
+        document.getElementById(
+            "username"
+        ).value;
+
+
+    let password=
+        document.getElementById(
+            "password"
+        ).value;
+
+
+
+    let user=
+        users[role].find(
+
+            x=>
+
+            x.username===username &&
+
+            x.password===password
+        );
+
+
+
+    if(user){
+
+        localStorage.setItem(
+            "loggedUser",
+            user.name
+        );
+
+
+
+        if(role==="admin"){
+
+            window.location=
+                "admin.html";
+        }
+
+
+
+        if(role==="client"){
+
+            window.location=
+                "client.html";
+        }
+
+
+
+        if(role==="student"){
+
+            window.location=
+                "student.html";
+        }
+
+    }
+
+    else{
+
+        alert(
+            "Invalid Login"
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

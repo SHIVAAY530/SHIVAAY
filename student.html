@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Student</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    background:#1c262f;
+
+    color:white;
+
+    font-family:Arial;
+}
+
+h1{
+
+    font-size:50px;
+
+    background:linear-gradient(
+        to right,
+        #FF8400,
+        #7B2CFF
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="name"></h1>
+
+
+<script>
+
+document.getElementById(
+    "name"
+).innerHTML=
+
+    "Hello Student, "+
+
+    localStorage.getItem(
+        "loggedUser"
+    );
+
+</script>
+
+
+</body>
+</html>
