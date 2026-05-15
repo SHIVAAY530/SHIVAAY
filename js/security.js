@@ -1,65 +1,37 @@
 /* =====================================
-   SHIVAAY TECH SECURITY - FINAL
+   SHIVAAY TECH SECURITY - PRODUCTION
 ===================================== */
 
 (function () {
 
     let blurActive = false;
-    let blurTimer = null;
 
 
-    /* INSTANT BLUR */
-    function activateBlur(duration = 3000) {
+    function activateBlur() {
 
-        if (!document.body) return;
-
-        clearTimeout(blurTimer);
+        if (blurActive) return;
 
         blurActive = true;
 
-        document.body.style.transition = "filter 0s";
-        document.body.style.filter = "blur(35px)";
+        if (document.body) {
+            document.body.style.filter = "blur(30px)";
+        }
 
 
-        blurTimer = setTimeout(function () {
+        setTimeout(function () {
 
-            if (document.visibilityState === "visible") {
-
+            if (document.body) {
                 document.body.style.filter = "none";
-
-                blurActive = false;
-
             }
 
-        }, duration);
+            blurActive = false;
 
+        }, 2000);
     }
 
 
 
-    /* PERMANENT LOCK */
-    function securityLock() {
-
-        document.body.innerHTML = `
-            <div style="
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                height:100vh;
-                background:#000;
-                color:#fff;
-                font-size:32px;
-                font-weight:bold;
-                text-align:center;
-            ">
-                SECURITY ALERT
-            </div>
-        `;
-    }
-
-
-
-    /* RIGHT CLICK */
+    // RIGHT CLICK BLOCK
     document.addEventListener("contextmenu", function (e) {
 
         e.preventDefault();
@@ -70,7 +42,7 @@
 
 
 
-    /* TEXT SELECT */
+    // TEXT SELECTION BLOCK
     document.addEventListener("selectstart", function (e) {
 
         e.preventDefault();
@@ -81,7 +53,7 @@
 
 
 
-    /* DRAG */
+    // DRAG BLOCK
     document.addEventListener("dragstart", function (e) {
 
         e.preventDefault();
@@ -92,10 +64,10 @@
 
 
 
-    /* COPY CUT PASTE */
-    ["copy", "cut", "paste"].forEach(function (eventName) {
+    // COPY / CUT / PASTE BLOCK
+    ["copy", "cut", "paste"].forEach(function (event) {
 
-        document.addEventListener(eventName, function (e) {
+        document.addEventListener(event, function (e) {
 
             e.preventDefault();
 
@@ -107,14 +79,14 @@
 
 
 
-    /* KEYBOARD SECURITY */
+    // KEYBOARD SECURITY
     document.addEventListener("keydown", function (e) {
 
         const key = e.key.toLowerCase();
 
 
 
-        /* PRINT SCREEN */
+        // PRINT SCREEN
         if (
             e.key === "PrintScreen" ||
             e.code === "PrintScreen"
@@ -129,7 +101,7 @@
 
 
 
-        /* CTRL SHORTCUTS */
+        // CTRL SHORTCUTS
         if (
             e.ctrlKey &&
             ["c", "v", "x", "u", "s", "p", "a"].includes(key)
@@ -144,18 +116,26 @@
 
 
 
-        /* DEVTOOLS */
-        if (
-            e.key === "F12" ||
+        // F12
+        if (e.key === "F12") {
 
-            (
-                e.ctrlKey &&
-                e.shiftKey &&
-                ["i", "j", "c", "s"].includes(key)
-            )
+            activateBlur();
+
+            e.preventDefault();
+
+            return false;
+        }
+
+
+
+        // CTRL + SHIFT + I / J / C / S
+        if (
+            e.ctrlKey &&
+            e.shiftKey &&
+            ["i", "j", "c", "s"].includes(key)
         ) {
 
-            securityLock();
+            activateBlur();
 
             e.preventDefault();
 
@@ -166,7 +146,7 @@
 
 
 
-    /* PRINTSCREEN FALLBACK */
+    // PRINTSCREEN FALLBACK
     document.addEventListener("keyup", function (e) {
 
         if (
@@ -182,16 +162,16 @@
 
 
 
-    /* ALT TAB / SNIPPING TOOL */
+    // SNIPPING TOOL / ALT+TAB / WINDOW SWITCH
     window.addEventListener("blur", function () {
 
         activateBlur();
 
-    }, true);
+    });
 
 
 
-    /* TAB SWITCH */
+    // TAB SWITCH
     document.addEventListener("visibilitychange", function () {
 
         if (
@@ -206,27 +186,19 @@
 
 
 
-    /* MOUSE LEAVE SCREEN */
-    document.addEventListener("mouseleave", function () {
-
-        activateBlur();
-
-    });
-
-
-
-    /* DEVTOOLS SIZE CHECK */
+    // DEVTOOLS DETECTION
     setInterval(function () {
 
         if (
 
-            window.outerWidth - window.innerWidth > 150 ||
+            window.outerWidth - window.innerWidth > 160 ||
 
-            window.outerHeight - window.innerHeight > 150
+            window.outerHeight - window.innerHeight > 160
 
         ) {
 
-            securityLock();
+            document.body.innerHTML =
+                "<div style='display:flex;justify-content:center;align-items:center;height:100vh;background:#000;color:#fff;font-size:32px;font-weight:bold;'>SECURITY ALERT</div>";
 
         }
 
