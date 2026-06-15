@@ -29,6 +29,9 @@ border-radius:40px;color:#fff;text-decoration:none;
 @keyframes float{50%{transform:translateY(-10px)}}
 </style>
 </head>
+ <div class="watermark">
+SHIVAAY TECH
+</div>
 <body oncontextmenu="return false">
 <div class="container">
 <img src="logo.png" class="logo" alt="Logo">
@@ -70,13 +73,24 @@ document.onkeydown = function(e) {
     }
 };
 </script>
- <script>
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-        document.body.style.filter = "blur(20px)";
-    } else {
-        document.body.style.filter = "none";
-    }
+ <style>
+.watermark{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) rotate(-30deg);
+font-size:8vw;
+font-weight:900;
+opacity:.05;
+pointer-events:none;
+z-index:99999;
+user-select:none;
+}
+</style>
+<script>
+document.addEventListener("visibilitychange", () => {
+    document.body.style.filter =
+        document.hidden ? "blur(50px)" : "none";
 });
 </script>
 </body>
