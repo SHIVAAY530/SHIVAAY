@@ -44,5 +44,44 @@ document.addEventListener('keydown',function(e){
  }
 });
 </script>
+
+ <script>
+// Disable right click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable common inspect shortcuts
+document.addEventListener('keydown', function(e){
+
+    if(e.key === 'F12'){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.shiftKey &&
+       ['I','J','C'].includes(e.key.toUpperCase())){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.key.toUpperCase() === 'U'){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.key.toUpperCase() === 'S'){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.key.toUpperCase() === 'P'){
+        e.preventDefault();
+    }
+});
+</script>
+ <script>
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        document.body.style.filter = "blur(20px)";
+    } else {
+        document.body.style.filter = "none";
+    }
+});
+</script>
 </body>
 </html>
