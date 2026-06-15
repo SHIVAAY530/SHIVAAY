@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SHIVAAY TECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{
+height:100vh;overflow:hidden;
+display:flex;justify-content:center;align-items:center;
+background:linear-gradient(135deg,#12001f,#2c004f,#000);
+color:#fff;text-align:center;
+}
+.container{padding:30px}
+.logo{
+width:min(280px,60vw);
+filter:drop-shadow(0 0 25px #ff9d00);
+animation:float 3s ease-in-out infinite;
+}
+h1{font-size:clamp(2.2rem,6vw,5rem);color:#ffb300;margin-top:20px}
+p{font-size:clamp(1rem,2vw,1.4rem);margin:15px 0}
+.btn{
+display:inline-block;padding:14px 28px;
+background:linear-gradient(45deg,#ffb300,#ff6a00);
+border-radius:40px;color:#fff;text-decoration:none;
+}
+.footer{position:fixed;bottom:15px;width:100%;font-size:.9rem}
+@keyframes float{50%{transform:translateY(-10px)}}
+</style>
+</head>
+<body oncontextmenu="return false">
+<div class="container">
+<img src="logo.png" class="logo" alt="Logo">
+<h1>SHIVAAY TECH</h1>
+<p>Smart Solutions For Your Problems</p>
+<a class="btn" href="mailto:contact@shivaaytech.in">contact@shivaaytech.in</a>
+</div>
+<div class="footer">© 2026 SHIVAAY TECH</div>
+
+<script>
+document.addEventListener('keydown',function(e){
+ if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C'].includes(e.key.toUpperCase()))||(e.ctrlKey&&e.key.toUpperCase()==='U')){
+   e.preventDefault();
+ }
+});
+</script>
+</body>
+</html>
